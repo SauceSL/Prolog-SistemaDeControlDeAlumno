@@ -58,7 +58,7 @@ PREGUNTAS = [
     },
     {
         "name": "horas_codigo",
-        "label": "Horas semanales dedicadas a código (ej. Hermes, BiblioLink):",
+        "label": "Horas semanales dedicadas a código:",
         "type": "number",
         "min": 0,
         "max": 60,
@@ -138,6 +138,7 @@ def normalizar_hechos(respuestas):
     hechos = {
         "estudio": respuestas["estudio"],
         "horas_sueno": horas_sueno,
+        "horas_codigo": horas_codigo,  
         "tareas": respuestas["tareas"],
         "comprension": respuestas["comprension"],
         "faltas": respuestas["faltas"],
@@ -150,7 +151,6 @@ def normalizar_hechos(respuestas):
         "comprende_parcial": respuestas["comprension"] == "parcial",
         "muchas_faltas": respuestas["faltas"] == "si",
         "algunas_faltas": respuestas["faltas"] == "algunas",
-        # Nuevos booleanos para Prolog:
         "traslado_largo": respuestas.get("traslado_tec") == "largo",
         "mucho_codigo": horas_codigo > 20
     }
