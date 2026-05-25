@@ -1,22 +1,128 @@
 :root {
     color-scheme: light;
-    --bg: #ffe4e6; 
+    --bg: #ffe4e6;
     --surface: #ffffff;
-    --ink: #000000; 
+    --ink: #000000;
+    --muted: #4a4a4a;
     --line: #000000;
-    --primary: #feca57; 
+    --primary: #feca57;
     --primary-dark: #ff9f43;
     --success: #1dd1a1;
-    --warning: #ff6b6b; 
+    --warning: #ff6b6b;
     --danger: #ee5253;
-    --border-width: 3px; 
+    --border-width: 3px;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+a {
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 900;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- ESTRUCTURA PRINCIPAL --- */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 32px;
+    background: var(--surface);
+    border-bottom: var(--border-width) solid var(--line);
+}
+
+.brand {
+    color: var(--ink);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+nav {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.page {
+    width: min(960px, calc(100% - 32px));
+    margin: 40px auto;
+}
+
+/* --- PANELES ESTILO CÓMIC --- */
+
 .panel {
     background: var(--surface);
     border: var(--border-width) solid var(--line);
     border-radius: 16px;
     padding: 28px;
-    box-shadow: 8px 8px 0px var(--line); 
+    box-shadow: 8px 8px 0px var(--line);
+}
+
+.auth-panel {
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0 0 18px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.section-heading {
+    margin-bottom: 24px;
+}
+
+.section-heading p,
+.muted,
+.empty {
+    margin: 0;
+    color: var(--muted);
+    font-weight: bold;
+}
+
+/* --- FORMULARIOS NEO-BRUTALISTAS --- */
+
+form {
+    display: grid;
+    gap: 18px;
+}
+
+label {
+    display: grid;
+    gap: 8px;
+    font-weight: 900;
+}
+
+input,
+select {
+    width: 100%;
+    min-height: 48px;
+    border: var(--border-width) solid var(--line);
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: var(--ink);
+    font: inherit;
+    font-weight: bold;
+    background: #fff;
+    box-shadow: 2px 2px 0px var(--line);
 }
 
 button,
@@ -50,16 +156,138 @@ button:active,
     box-shadow: 0px 0px 0px var(--line);
 }
 
-input,
-select {
-    width: 100%;
-    min-height: 48px;
-    border: var(--border-width) solid var(--line);
-    border-radius: 10px;
-    padding: 10px 12px;
+.button.secondary {
+    background: #e8eef8;
     color: var(--ink);
-    font: inherit;
+}
+
+.question-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.question-form button {
+    grid-column: 1 / -1;
+}
+
+/* --- ALERTAS Y TABLAS --- */
+
+.alert {
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: #e8eef8;
+    border: var(--border-width) solid var(--line);
     font-weight: bold;
-    background: #fff;
     box-shadow: 2px 2px 0px var(--line);
+    margin-bottom: 20px;
+}
+
+.alert.error {
+    background: var(--warning);
+    color: var(--ink);
+}
+
+.alert.success {
+    background: var(--success);
+    color: var(--ink);
+}
+
+.result-panel {
+    text-align: center;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.recommendation {
+    max-width: 620px;
+    margin: 0 auto 24px;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.table-wrap {
+    overflow-x: auto;
+    border: var(--border-width) solid var(--line);
+    border-radius: 12px;
+    box-shadow: 6px 6px 0px var(--line);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+}
+
+th,
+td {
+    padding: 12px 10px;
+    border-bottom: 2px solid var(--line);
+    text-align: left;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+th {
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    background: var(--primary);
+    border-bottom: var(--border-width) solid var(--line);
+}
+
+.badge {
+    display: inline-block;
+    min-width: 64px;
+    border-radius: 999px;
+    padding: 4px 10px;
+    text-align: center;
+    font-weight: 900;
+    border: 2px solid var(--line);
+    color: var(--ink);
+}
+
+.badge.alto {
+    background: var(--danger);
+}
+
+.badge.medio {
+    background: var(--primary);
+}
+
+.badge.bajo {
+    background: var(--success);
+}
+
+@media (max-width: 680px) {
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    .page {
+        margin: 24px auto;
+    }
+
+    .panel {
+        padding: 20px;
+    }
+
+    .question-form {
+        grid-template-columns: 1fr;
+    }
 }
