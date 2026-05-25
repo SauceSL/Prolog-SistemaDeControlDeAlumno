@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel">
+    <div class="section-heading">
+        <h1>Diagnóstico académico</h1>
+        <p>Responde con honestidad para estimar tu nivel de riesgo académico.</p>
+    </div>
+
+    <form method="post" class="question-form">
+        {% for pregunta in preguntas %}
+            <label>
+                {{ pregunta.label }}
+                {% if pregunta.type == "select" %}
+                    <select name="{{ pregunta.name }}" required>
+                        {% for value, label in pregunta.options %}
+                            <option value="{{ value }}">{{ label }}</option>
+                        {% endfor %}
+                    </select>
+                {% else %}
+                    <input
+                        name="{{ pregunta.name }}"
+                        type="number"
+                        min="{{ pregunta.min }}"
+                        max="{{ pregunta.max }}"
+                        value="7"
+                        required
+                    >
+                {% endif %}
+            </label>
+        {% endfor %}
+
+        <button type="submit">Analizar rendimiento</button>
+    </form>
+</section>
+{% endblock %}

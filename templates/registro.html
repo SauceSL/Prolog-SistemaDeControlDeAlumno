@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel auth-panel">
+    <h1>Registro de alumno</h1>
+    <form method="post">
+        <label>
+            Nombre
+            <input name="nombre" required autocomplete="name">
+        </label>
+        <label>
+            Usuario
+            <input name="usuario" required autocomplete="username">
+        </label>
+        <label>
+            Contraseña
+            <input name="password" type="password" required autocomplete="new-password">
+        </label>
+        <button type="submit">Crear cuenta</button>
+    </form>
+</section>
+{% endblock %}

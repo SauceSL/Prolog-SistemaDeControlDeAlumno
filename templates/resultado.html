@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel result-panel">
+    <p class="eyebrow">Diagnóstico del Sistema Experto</p>
+    <h1>Riesgo: {{ riesgo|capitalize }}</h1>
+    
+    <h3 style="color: var(--primary-dark);">Perfil detectado: {{ perfil|capitalize }}</h3>
+    
+    <div style="text-align: left; margin: 24px auto; max-width: 500px;">
+        <strong>Plan de Acción Recomendado:</strong>
+        <ul style="padding-left: 20px; line-height: 1.6;">
+            {% for rec in recomendaciones %}
+                <li>{{ rec }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="actions">
+        <a class="button" href="{{ url_for('diagnostico') }}">Nuevo diagnóstico</a>
+        <a class="button secondary" href="{{ url_for('historial') }}">Ver historial</a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,65 @@
+:root {
+    color-scheme: light;
+    --bg: #ffe4e6; 
+    --surface: #ffffff;
+    --ink: #000000; 
+    --line: #000000;
+    --primary: #feca57; 
+    --primary-dark: #ff9f43;
+    --success: #1dd1a1;
+    --warning: #ff6b6b; 
+    --danger: #ee5253;
+    --border-width: 3px; 
+}
+.panel {
+    background: var(--surface);
+    border: var(--border-width) solid var(--line);
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 8px 8px 0px var(--line); 
+}
+
+button,
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    border: var(--border-width) solid var(--line);
+    border-radius: 12px;
+    padding: 10px 20px;
+    background: var(--primary);
+    color: var(--ink);
+    font: inherit;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px var(--line);
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+button:hover,
+.button:hover {
+    background: var(--primary-dark);
+}
+
+button:active,
+.button:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px var(--line);
+}
+
+input,
+select {
+    width: 100%;
+    min-height: 48px;
+    border: var(--border-width) solid var(--line);
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: var(--ink);
+    font: inherit;
+    font-weight: bold;
+    background: #fff;
+    box-shadow: 2px 2px 0px var(--line);
+}

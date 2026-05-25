@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel">
+    <div class="section-heading">
+        <h1>Historial</h1>
+        <p>Diagnósticos guardados para {{ g.usuario.nombre }}.</p>
+    </div>
+
+    {% if diagnosticos %}
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Riesgo</th>
+                        <th>Estudio</th>
+                        <th>Sueño</th>
+                        <th>Tareas</th>
+                        <th>Comprensión</th>
+                        <th>Faltas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in diagnosticos %}
+                        <tr>
+                            <td>{{ item.creado_en }}</td>
+                            <td><span class="badge {{ item.riesgo }}">{{ item.riesgo }}</span></td>
+                            <td>{{ item.estudio }}</td>
+                            <td>{{ item.horas_sueno }} h</td>
+                            <td>{{ item.tareas }}</td>
+                            <td>{{ item.comprension }}</td>
+                            <td>{{ item.faltas }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p class="empty">Todavía no tienes diagnósticos guardados.</p>
+    {% endif %}
+</section>
+{% endblock %}
