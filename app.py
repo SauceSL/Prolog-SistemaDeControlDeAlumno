@@ -202,10 +202,12 @@ def diagnostico_prolog(hechos):
             check=True,
         )
         salida = resultado.stdout.strip().split(',')
-        if len(salida) == 2:
-            return salida[0], salida[1] 
-        return "medio", "regular"
-    except (FileNotFoundError, subprocess.SubprocessError):
+        if len(salida) >= 2:
+            return salida[-2].strip(), salida[-1].strip()
+            
+        return "medio", "regular" 
+    except Exception as e:
+        print(f"Error Prolog: {e}")
         return "medio", "regular"
 
 
