@@ -98,7 +98,7 @@ def init_db():
             tareas TEXT NOT NULL,
             comprension TEXT NOT NULL,
             faltas TEXT NOT NULL,
-            traslado_tec TEXT,          -
+            traslado_tec TEXT,          
             horas_codigo INTEGER,       
             riesgo TEXT NOT NULL,
             perfil TEXT,                
